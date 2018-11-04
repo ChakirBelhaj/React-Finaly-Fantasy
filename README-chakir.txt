@@ -10,9 +10,10 @@ Visual studio
 
 Backend
 1. Open de meegegeven visualstudio solution in finalfantasyreact.
-2. Start de applicatie op.
-3. Controleer if de API url https://localhost:44323/ is
+2. Start de applicatie op(IIS express). 
+3. Controleer of de API url https://localhost:44323/ is.
    zo niet verander in React-Finaly-Fantasy\FnalFantasyFrontEnd\src\Helpers\config.js de API url naar de juiste URL
+4. Hier kunt u alle endpoints van de API bekijken.
 
 Frontend
 3. Navigeer via een terminal naar React-Finaly-Fantasy\FnalFantasyFrontEnd.
