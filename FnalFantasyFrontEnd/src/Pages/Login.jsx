@@ -12,14 +12,7 @@ class Login extends React.Component {
             password: "",
             redirect: false
         };
-
-        // this.handleInputChange = this.handleInputChange.bind(this);
     }
-
-    // componentDidMount = () => {
-    //   console.log("message")
-    //   NotificationManager.success('Success message', 'Title here');
-    // }
 
     handleInputChange = event => {
         this.setState({
@@ -32,13 +25,14 @@ class Login extends React.Component {
         this.Login(this.state);
     };
 
-    Login(dataFromState) {
+    //login function
+    Login(State) {
         axios({
             method: "post",
             url: config.apiUrl + "Users/login",
             data: {
-                email: dataFromState.email,
-                password: dataFromState.password
+                email: State.email,
+                password: State.password
             },
             withCredentials: true,
             headers: {
@@ -65,6 +59,7 @@ class Login extends React.Component {
     }
 
     render() {
+        //check if user is logged in, if so redirect to dashboard
         if (localStorage.getItem("authenticationData") !== null) {
             return <Redirect to="/Dashboard" />;
         }
@@ -75,11 +70,6 @@ class Login extends React.Component {
         return (
             <React.Fragment>
                 <div className="login-form">
-                    {/*
-          Heads up! The styles below are necessary for the correct render of this example.
-          You can do same with CSS, the main idea is that all the elements up to the `Grid`
-          below must have a height of 100%.
-        */}
                     <style>{`
           body > div,
           body > div > div,

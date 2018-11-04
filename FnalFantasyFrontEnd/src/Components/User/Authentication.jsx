@@ -1,6 +1,7 @@
 import { React, axios, config } from "../../Helpers/ImportHelper";
 
 class Auth {
+	//ajax call to refresh authentication token if expired
 	getAuthData = () => {
 		const ajax = axios({
 			method: "post",
@@ -21,6 +22,8 @@ class Auth {
 			});
 		return ajax;
 	};
+
+	//check if user is logged in, logs user out if logout parameter is true
 	isLoggedIn(logout) {
 		if (logout == "true" || !localStorage.getItem("authenticationData")) {
 			localStorage.clear();
@@ -31,6 +34,7 @@ class Auth {
 		}
 	}
 
+	//check if user is still logged in
 	isAuthenticated = () => {
 		return new Promise((done, reject) => {
 			JSON.parse(!localStorage.getItem("authenticationData")) || Date.now() > Date.parse(JSON.parse(localStorage.getItem("authenticationData")).expiredate)
@@ -46,6 +50,7 @@ class Auth {
 		});
 	};
 
+	// clears localstorage and sessionstorage
 	Unset = () => {
 		localStorage.clear();
 		sessionStorage.clear();

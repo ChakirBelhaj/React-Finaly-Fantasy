@@ -1,13 +1,17 @@
 import { React, Auth} from "../Helpers/ImportHelper";
 import { Route, Redirect } from "react-router-dom";
+
+// declaring private route
 const PrivateRoute = ({ component: Component, role, logout, parameter, ...rest }) => (
 	<Route
 		{...rest}
 		render={props => {
+			//logs user out
 			if (!Auth.isLoggedIn(logout)) {
 				return <Redirect to={{ pathname: "/login", state: { from: props.location } }} />;
 			}
 
+			// check rif loggedin user is permitted to check the page
 			if (JSON.parse(localStorage.getItem("authenticationData")).rol && role != JSON.parse(localStorage.getItem("authenticationData")).rol) {
 				return (
 					<Redirect
@@ -19,6 +23,7 @@ const PrivateRoute = ({ component: Component, role, logout, parameter, ...rest }
 				);
 			}
 
+			//calling auth function
 			return Auth.isAuthenticated()
 				.then(() => {
 					return true;
