@@ -1,4 +1,4 @@
-import { React, axios, config, Auth} from "../Helpers/ImportHelper";
+import { React, Auth} from "../Helpers/ImportHelper";
 import { Route, Redirect } from "react-router-dom";
 const PrivateRoute = ({ component: Component, role, logout, parameter, ...rest }) => (
 	<Route

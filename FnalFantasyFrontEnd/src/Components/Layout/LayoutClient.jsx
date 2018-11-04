@@ -1,12 +1,11 @@
-import { React, axios, config, NotificationManager } from "../../Helpers/ImportHelper";
-import { Button, Checkbox, Grid, Header, Icon, Image, Menu, Segment, Sidebar } from "semantic-ui-react";
+import { React } from "../../Helpers/ImportHelper";
+import { Icon, Menu, Segment, Sidebar } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 class Layoutclient extends React.Component {
 	constructor(props) {
 		super(props);
 
 		this.state = {
-			companyUsers: "",
 			visible: true
 		};
 	}

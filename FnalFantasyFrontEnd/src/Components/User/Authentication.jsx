@@ -13,7 +13,6 @@ class Auth {
 			}
 		})
 			.then(response => {
-				alert("state is geset");
 				localStorage.setItem("authenticationData", JSON.stringify(response.data));
 			})
 			.catch(error => {
